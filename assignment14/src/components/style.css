@@ -1,0 +1,23 @@
+.container-fluid{
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.titleBar{
+    background:grey;
+    color: rgb(248, 179, 51);
+    text-align: center;
+    padding:20px;
+    font-size:20px;
+    width: 100%;
+}
+.gameTitle{
+
+
+}
+.status{
+
+}
+.scoreStatus{
+    font-family: Arial, Helvetica, sans-serif;
+
+}
