@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./style.css";
+import Logo from "./images/logo.png";
 
 
 
@@ -24,7 +25,7 @@ class TitleBar extends Component {
                 <div className="row">
                     <div className="col-4">
                         <div className="gameTitle">
-                            <p><img src="./images/logo" alt="Naruto"></img> Memory Game</p>
+                            <p><img src={Logo} className="logoImage" alt="Naruto"></img> Memory Game</p>
                         </div>
                     </div>
                     <div className="col-4">
