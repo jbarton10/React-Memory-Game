@@ -1,19 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import "./style.css";
 import Logo from "./images/logo.png";
 
 
 
 function TitleBar(props) {
-
-    // handleInputChange = event => {
-    //     const value = event.target.value;
-    //     const name = event.target.name;
-
-    //     this.setState({
-    //         [name]: value
-    //     })
-    // }
 
         return (
             <div className="container-fluid">
