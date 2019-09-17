@@ -2,24 +2,17 @@ import React, { Component } from "react";
 
 
 
+function ImageDiv(props){
 
-class ImageDiv extends Component{
-    state = {
-        clicked: false,
-        imgSrc: ""
-    }
-
-    // setSrc = () =>{
-        
-    // }
-
-    render(){
+        console.log("this is in ImageDiv " + props)
         return(
-            <ImageDiv />
+            <img className = "actualImage" src={props.imageSrc} onClick = {props.onClick}></img>
         )
     }
     
-}
+
+
+
 
 export default ImageDiv;
 

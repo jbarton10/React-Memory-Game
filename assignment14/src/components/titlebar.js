@@ -4,21 +4,17 @@ import Logo from "./images/logo.png";
 
 
 
-class TitleBar extends Component {
-    state = {
-        score: 0,
-        topScore: 0,
-        message: "Click an Image to Begin!"
-    }
-    handleInputChange = event => {
-        const value = event.target.value;
-        const name = event.target.name;
+function TitleBar(props) {
 
-        this.setState({
-            [name]: value
-        })
-    }
-    render() {
+    // handleInputChange = event => {
+    //     const value = event.target.value;
+    //     const name = event.target.name;
+
+    //     this.setState({
+    //         [name]: value
+    //     })
+    // }
+
         return (
             <div className="container-fluid">
                 <div className="titleBar">
@@ -30,12 +26,12 @@ class TitleBar extends Component {
                     </div>
                     <div className="col-4">
                         <div className="status">
-                            <p>{this.state.message}</p>
+                            <p>{props.message}</p>
                         </div>
                     </div>
                     <div className="col-4">
                         <div className="scoreStats">
-                            <p>Score : {this.state.score} | Top Score : {this.state.topScore}</p>
+                            <p>Score : {props.score} | Top Score : {props.topScore}</p>
                         </div>
                     </div>
                 </div>
@@ -43,7 +39,6 @@ class TitleBar extends Component {
             </div>
         )
     }
-}
 
 export default TitleBar;
 

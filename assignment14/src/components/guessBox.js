@@ -15,67 +15,48 @@ import pic12 from "./images/pic12.jpg"
 
 
 
-
 class GuessBox extends Component {
     state = {
-        images: [pic1,pic2,pic3,pic4,pic5,pic6,pic7,pic8,pic9,pic10,pic11,pic12],
-        boardState: [<ImageDiv />, <ImageDiv />, <ImageDiv />, <ImageDiv />, <ImageDiv />, <ImageDiv />, <ImageDiv />, <ImageDiv />, <ImageDiv />, <ImageDiv />, <ImageDiv />, <ImageDiv />]
+        images :[{src: pic1, isClicked:false, id: 1},{src:pic2, isClicked: false, id: 2},{src:pic3, isClicked: false, id: 3},{src:pic4, isClicked: false, id: 4},{src:pic5, isClicked: false, id: 5},{src:pic6, isClicked: false, id: 6},{src:pic7, isClicked: false, id: 7},{src:pic8, isClicked: false, id: 18},{src:pic9, isClicked: false, id: 9},{src:pic10, isClicked: false, id: 10},{src:pic11, isClicked: false, id: 11},{src:pic12, isClicked: false, id: 12}]
+        }
+    shuffleBoard = () => {
+        let newArray = this.state.images;
+     
+        for (var i = newArray.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = newArray[i];
+            newArray[i] = newArray[j];
+            newArray[j] = temp;
+        }
+        console.log(newArray);
     }
 
-    render() {
-        return (
+    onImageClick = (value2Check) => {
+        let newState = this.state.images;
+       for(let i = 0; i < newState.length; i ++){
+           if(newState[i].id == value2Check){
+            newState[i].isClicked = true;
+            
+           }
+       }
+        this.setState({
+            images: newState
+        })
+        this.shuffleBoard();
+    }
 
+    componentDidMount(){
+        this.shuffleBoard();
+    }
+    render() {
+        console.log(this.state)
+        return (
             <div className="container-fluid">
                 <div className="gameContent">
-                  {this.boardState}
+                  {this.state.images.map( (image) => <ImageDiv imageSrc={image.src} onClick={() => this.onImageClick(image.id)} />)}
                 </div>
             </div>
-            // <div className="container-fluid">
-            //     <div className="gameContent">
-            //         <div className="row">
-            //             <div className="col">
-            //                 <img className = "actualImage" src={pic1}></img>
-            //             </div>
-            //             <div className="col">
-            //                 <img className = "actualImage" src={pic2}></img>
-            //             </div>
-            //             <div className="col">
-            //                 <img className = "actualImage" src={pic3}></img>
-            //             </div>
-            //             <div className="col">
-            //                 <img className = "actualImage" src={pic4}></img>
-            //             </div>
-            //         </div>
-            //         <div className="row">
-            //             <div className="col">
-            //                 <img className = "actualImage" src={pic5}></img>
-            //             </div>
-            //             <div className="col">
-            //                 <img className = "actualImage" src={pic6}></img>
-            //             </div>
-            //             <div className="col">
-            //                 <img className = "actualImage" src={pic7}></img>
-            //             </div>
-            //             <div className="col">
-            //                 <img className = "actualImage" src={pic8}></img>
-            //             </div>
-            //         </div>
-            //         <div className="row">
-            //             <div className="col">
-            //                 <img className = "actualImage" src={pic9}></img>
-            //             </div>
-            //             <div className="col">
-            //                 <img className = "actualImage" src={pic10}></img>
-            //             </div>
-            //             <div className="col">
-            //                 <img className = "actualImage" src={pic11}></img>
-            //             </div>
-            //             <div className="col">
-            //                 <img className = "actualImage" src={pic12}></img>
-            //             </div>
-            //         </div>
-            //     </div>
-            // </div>
+           
         )
     }
 }
